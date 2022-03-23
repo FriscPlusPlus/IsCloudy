@@ -52,7 +52,8 @@
     "lint:md": "remark . -qfo",
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test ava",
-    "test-coverage": "cross-env NODE_ENV=test nyc npm run test"
+    "test-coverage": "cross-env NODE_ENV=test nyc npm run test",
+    "fix": "xo --fix"
   },
   "xo": {
     "prettier": true,

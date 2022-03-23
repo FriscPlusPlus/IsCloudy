@@ -22,3 +22,10 @@ coverage
 #      Files      #
 ###################
 *.log
+
+
+# history of vscode #
+#####################
+.history
+
+ips.json

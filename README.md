@@ -35,7 +35,7 @@ const Iscloudy = require('iscloudy');
 
 const iscloudy = new Iscloudy();
 
-console.log(iscloudy.renderName());
+console.log(iscloudy.check());
 // script
 ```
 
@@ -47,6 +47,11 @@ console.log(iscloudy.renderName());
 
 
 ##
+
+##
+Todo:
+[ ] Add dns 2 ip 
+[ ] Add multi checker
 
 [npm]: https://www.npmjs.com/
 
