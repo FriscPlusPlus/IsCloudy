@@ -25,9 +25,7 @@
     "nyc": "latest",
     "remark-cli": "latest",
     "remark-preset-github": "latest",
-    "xo": "latest",
-    "axios": "^0.26.1",
-    "ip-cidr": "^3.0.4"
+    "xo": "latest"
   },
   "engines": {
     "node": ">= 10"
