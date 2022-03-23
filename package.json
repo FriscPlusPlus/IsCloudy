@@ -1,0 +1,16 @@
+{
+  "name": "iscloudy",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Firas Jelassi <firasroudi@gmail.com> (https://jelassi.me/)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "ip-cidr": "^3.0.4"
+  }
+}
