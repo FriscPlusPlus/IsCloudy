@@ -13,13 +13,13 @@ const cloudflare = new Cloudy(
 
 (async function () {
   cloudflare.onError((err) => {
-    debugger;
+    console.log(err);
   });
   cloudflare.onCloudFlareFound((data) => {
-    debugger;
+    console.log('FOUND: ' + data);
   });
   cloudflare.onDone((data) => {
-    debugger;
+    console.log('FOUND All: ' + data);
   });
   const result = await cloudflare.check();
   console.log(result);
