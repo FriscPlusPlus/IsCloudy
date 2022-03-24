@@ -82,7 +82,7 @@ cloudflare.onDone((data) => {
 | Parameter name | Type            | Description                                                                                                   |
 | -------------- | --------------- | ------------------------------------------------------------------------------------------------------------- |
 | target         | String or Array | a single target or an array of targers containing IPs or domain names                                         |
-| update         | Boolean         | if set to true it will fetch the latest ranges of cloudflare ip or else it will use the local saved json file |
+| update         | Boolean         | if set to true it will fetch the latest ranges of cloudflare ip or else it will use the local saved json file the default value is false |
 
 ### check(): object/array of object
 
