@@ -50,7 +50,8 @@ console.log(iscloudy.check());
 
 # Todo:
 - [ ] Add dns 2 ip 
-- [ ] Add multi checker
+- [x] Add multi checker
+- [ ] Add Event listener
 
 [npm]: https://www.npmjs.com/
 
