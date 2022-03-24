@@ -49,7 +49,7 @@ console.log(iscloudy.check());
 ##
 
 # Todo:
-- [ ] Add dns 2 ip 
+- [x] Add dns 2 ip 
 - [x] Add multi checker
 - [ ] Add Event listener
 

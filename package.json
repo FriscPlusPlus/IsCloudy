@@ -15,19 +15,19 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "ava": "latest",
+    "axios": "^0.26.1",
     "codecov": "latest",
     "cross-env": "latest",
     "eslint": "latest",
     "eslint-config-xo-lass": "latest",
     "fixpack": "latest",
     "husky": "latest",
+    "ip-cidr": "^3.0.4",
     "lint-staged": "latest",
     "nyc": "latest",
     "remark-cli": "latest",
     "remark-preset-github": "latest",
-    "xo": "latest",
-    "axios": "^0.26.1",
-    "ip-cidr": "^3.0.4"
+    "xo": "latest"
   },
   "engines": {
     "node": ">= 10"
