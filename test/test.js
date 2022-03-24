@@ -12,15 +12,16 @@ const cloudflare = new Cloudy(
 );
 
 (async function () {
-  cloudflare.onError((err) => {
-    console.log(err);
-  });
-  cloudflare.onCloudFlareFound((data) => {
-    console.log('FOUND: ' + data);
-  });
-  cloudflare.onDone((data) => {
-    console.log('FOUND All: ' + data);
-  });
   const result = await cloudflare.check();
   console.log(result);
 })();
+
+cloudflare.onError((err) => {
+  console.log(err);
+});
+cloudflare.onCloudFlareFound((data) => {
+  console.log('FOUND: ' + data);
+});
+cloudflare.onDone((data) => {
+  console.log('FOUND All: ' + data);
+});

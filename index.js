@@ -18,7 +18,7 @@ const IPCIDR = require('ip-cidr');
 
 const event = new EventEmitter();
 
-class isCloudy {
+class IsCloudy {
   constructor(target, update) {
     this.ip = this._validateHost(target);
     this.update = update || false;
@@ -149,4 +149,4 @@ class isCloudy {
   }
 }
 
-module.exports = isCloudy;
+module.exports = IsCloudy;
