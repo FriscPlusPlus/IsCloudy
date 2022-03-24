@@ -30,7 +30,7 @@
     "xo": "latest"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "homepage": "https://github.com/Friscas/iscloudy",
   "keywords": [
