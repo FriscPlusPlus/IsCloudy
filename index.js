@@ -26,20 +26,13 @@ class IsCloudy {
   }
 
   async check() {
-    if (this.update) {
-      this._getRanges();
-    } else if (this._checkIfExist()) {
-      this._getRanges();
+    if (this.update || this._getRanges()) {
     } else {
-      this.IPs = JSON.parse(fs.readFileSync('ips.json'));
     }
-
-    if (this.IPs.length > 0) {
-      // very bad coding ik, i will improve the code quality once i am done with the main tool im working on
-      const results = await this._isCloudy();
-      if (results) event.emit('done', results);
-      return results;
-    }
+    this.IPs = JSON.parse(fs.readFileSync('ips.json'));
+    const results = await this._isCloudy();
+    if (results) event.emit('done', results);
+    return results;
   }
 
   onError(method) {
@@ -92,13 +85,19 @@ class IsCloudy {
         event.emit('error', err);
       } else {
         this.update = false;
-        this.check(); // ik know, i know its very bad, i will handle every async as it should be correctly handled once i start the rework
       }
     });
   }
 
   _checkIfExist() {
-    return !fs.existsSync('ips.json');
+    return fs.existsSync('ips.json');
+  }
+
+  async _runCheck() {
+    if (this.update || |this._checkIfExist()) {
+      await this._generateIPs();
+    }
+    return true;
   }
 
   _isURL(url) {
