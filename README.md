@@ -1,5 +1,3 @@
-# Is it Cloudy? :D
-
 ![main-logo](/logo/logo.png) <br><br>
 
 [![build status](https://img.shields.io/travis/com/Friscas/iscloudy.svg)](https://travis-ci.com/Friscas/iscloudy)
@@ -134,7 +132,3 @@ Copyright (c) 2022 Firas Jelassi <firasroudi@gmail.com>
 
 [npm]: https://www.npmjs.com/
 [yarn]: https://yarnpkg.com/
-
-```
-
-```
