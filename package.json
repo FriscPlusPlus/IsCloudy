@@ -1,7 +1,7 @@
 {
   "name": "iscloudy",
-  "description": "NodeJS lib to check if an single IP or a set of IPs are cloudflare",
-  "version": "1.0.1",
+  "description": "NodeJS lib to check if an IP or more are Cloudflare",
+  "version": "1.0.2",
   "author": "Firas Jelassi <firasroudi@gmail.com>",
   "bugs": {
     "url": "https://github.com/Friscas/iscloudy/issues",

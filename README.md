@@ -10,7 +10,7 @@
 [![license](https://img.shields.io/github/license/Friscas/iscloudy.svg)](LICENSE)
 [![npm downloads](https://img.shields.io/npm/dt/iscloudy.svg)](https://npm.im/iscloudy)
 
-> A simple library to check if your target(s) are behind cloudflare
+> A simple library to check if your target(s) are cloudflare IPs
 
 # Table of Contents
 
@@ -23,10 +23,7 @@
 - [Contributing](#contributing)
 
 # General
-
-With this library you can check if your targets are using behind cloudflare or not.
-You could use this library for example to write your own tool for information gathering
-and it simplify your life 😉
+With this library, you can check if your targets are Cloudflare IPs. Why did I make it? The reason is that I am building a CLI tool named [gimmesites](https://github.com/Friscas/gimmesites) that requires checking if a given IP is Cloudflare to report it to the user, and since I could not find any library that does this, I then did it.
 
 # Install
 
@@ -59,7 +56,7 @@ const cloudflare = new Cloudy(
 
 (async function () {
   const result = await cloudflare.check();
-  console.log(result); // will log the array containing objects with target and boolean value of true/false if the target is using cloudflare
+  console.log(result); // will log an array of objects
 })();
 
 cloudflare.onError((err) => {
@@ -81,19 +78,19 @@ cloudflare.onDone((data) => {
 
 | Parameter name | Type            | Description                                                                                                   |
 | -------------- | --------------- | ------------------------------------------------------------------------------------------------------------- |
-| target         | String or Array | a single target or an array of targers containing IPs or domain names                                         |
-| update         | Boolean         | if set to true it will fetch the latest ranges of cloudflare ip or else it will use the local saved json file. Default value is false. |
+| target         | String[] |  List of targets, they can be IPs or domain names                                         |
+| update         | Boolean         | if set to true it will fetch the latest ranges of Cloudflare IPs. *Default value is false.* |
 
-### check(): object/array of object
+### check(): Object[]
 
 | Return Type                  | Description                                 |
 | ---------------------------- | ------------------------------------------- |
-| Object or an array of object | It contains Object(s) on format shown below |
+| Object[] | It contains an array of Object(s) with the following format |
 
 ```js
 {
-    target: your target,
-    CloudFlare: true/false depending if the target is behind cloudflare
+    target: Current target,
+    CloudFlare: true/false
 };
 ```
 
@@ -107,23 +104,23 @@ cloudflare.onDone((data) => {
 
 ### onCloudFlareFound(method): void
 
-| Return Type | Description                                            |
+| Parameter name| Description                                            |
 | ----------- | ------------------------------------------------------ |
-| method      | this event gets fired for each found cloudflare target |
+| method      | this event gets fired for each found cloudflare target. |
 
 ### onDone(method): void
 
-| Return Type | Description                                                                  |
+| Parameter name | Description                                                                  |
 | ----------- | ---------------------------------------------------------------------------- |
-| method      | this event gets fired only once, when the all the targets have being checked |
+| method      | this event gets fired only once, when all the targets have being checked. |
 
 # Contributing
 
 This is your typical "fork-and-pull" Git workflow.
 
 - Fork the repo on GitHub
-- Clone the project to your own machine
-- Commit changes to your own branch
+- Clone the project to your machine
+- Commit changes to your branch
 - Push your work back up to your fork
 - Submit a Pull request so that we can review your changes
 
