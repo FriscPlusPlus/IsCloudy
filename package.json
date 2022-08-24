@@ -14,7 +14,7 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "ava": "latest",
+    "ava": "^4.3.1",
     "axios": "^0.26.1",
     "codecov": "latest",
     "cross-env": "latest",
@@ -46,13 +46,11 @@
     "url": "https://github.com/Friscas/iscloudy"
   },
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "npm run lint:js && npm run lint:md",
     "lint:js": "xo",
     "lint:md": "remark . -qfo",
     "pretest": "npm run lint",
-    "test": "cross-env NODE_ENV=test ava",
-    "test-coverage": "cross-env NODE_ENV=test nyc npm run test",
+    "test": "ava",
     "fix": "xo --fix"
   },
   "xo": {

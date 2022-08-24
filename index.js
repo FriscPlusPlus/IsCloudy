@@ -7,7 +7,6 @@
  */
 
 /* eslint-disable no-await-in-loop */
-
 /* eslint-disable node/prefer-promises/fs */
 
 const EventEmitter = require('events');
@@ -26,13 +25,13 @@ class IsCloudy {
   }
 
   async check() {
-    if (this.update || this._getRanges()) {
+    if (this.update || !this._checkIfExist()) {
+      this._getRanges();
     } else {
+      this.IPs = JSON.parse(fs.readFileSync('ips.json'));
+      const results = await this._isCloudy();
+      if (results) event.emit('done', results);
     }
-    this.IPs = JSON.parse(fs.readFileSync('ips.json'));
-    const results = await this._isCloudy();
-    if (results) event.emit('done', results);
-    return results;
   }
 
   onError(method) {
@@ -80,11 +79,12 @@ class IsCloudy {
   }
 
   _writeArrayToJsonFile(ips) {
-    fs.writeFile('ips.json', JSON.stringify(ips), 'utf8', (err) => {
+    fs.writeFile('ips.json', JSON.stringify(ips), 'utf8', async (err) => {
       if (err) {
         event.emit('error', err);
       } else {
         this.update = false;
+        await this.check();
       }
     });
   }
@@ -93,20 +93,14 @@ class IsCloudy {
     return fs.existsSync('ips.json');
   }
 
-  async _runCheck() {
-    if (this.update || |this._checkIfExist()) {
-      await this._generateIPs();
-    }
-    return true;
-  }
-
   _isURL(url) {
+    let result;
     try {
-      url = new URL(url);
-    } catch (error) {
-      return false;
+      result = new URL(url).host;
+    } catch (err) {
+      result = false;
     }
-    return url.host;
+    return result;
   }
 
   async _ValidateIp(ip) {
@@ -114,10 +108,11 @@ class IsCloudy {
       if (this._isURL(ip)) {
         ip = this._isURL(ip);
       }
+
       ip = await dns.lookup(ip);
       return ip.address;
-    } catch (error) {
-      event.emit('error', error);
+    } catch (err) {
+      event.emit('error', err);
     }
   }
 

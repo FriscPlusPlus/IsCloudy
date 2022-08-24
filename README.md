@@ -79,20 +79,13 @@ cloudflare.onDone((data) => {
 | target         | String[] |  List of targets, they can be IPs or domain names                                         |
 | update         | Boolean         | if set to true it will fetch the latest ranges of Cloudflare IPs. *Default value is false.* |
 
-### check(): Object[]
+### check(): void
 
-| Return Type                  | Description                                 |
-| ---------------------------- | ------------------------------------------- |
-| Object[] | It contains an array of Object(s) with the following format |
-
-```js
-{
-    target: Current target,
-    CloudFlare: true/false
-};
-```
+This is the main method to call, it will not return anything. **USE THE EVENTS TO GET THE RESULTS**
 
 ## Events
+
+The methods that you define will need one parameter, to get the returning values. In case of success 'onCloudFlareFound' and 'onDone' you will get for the first event an object and for the latter, you will get an array of objects.
 
 ### onError(method): void
 
