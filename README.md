@@ -1,4 +1,5 @@
-![main-logo](/logo/logo.png) <br><br>
+<img alt="main-logo" src="logo/logo.png" width="400">
+
 
 ![build status](https://circleci.com/gh/Friscas/IsCloudy.svg?style=shield)
 [![code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
