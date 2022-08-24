@@ -53,8 +53,7 @@ const cloudflare = new Cloudy(
 );
 
 (async function () {
-  const result = await cloudflare.check();
-  console.log(result); // will log an array of objects
+  await cloudflare.check();
 })();
 
 cloudflare.onError((err) => {
