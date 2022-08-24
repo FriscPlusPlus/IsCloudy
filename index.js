@@ -97,9 +97,10 @@ class IsCloudy {
     let result;
     try {
       result = new URL(url).host;
-    } catch (err) {
+    } catch {
       result = false;
     }
+
     return result;
   }
 
