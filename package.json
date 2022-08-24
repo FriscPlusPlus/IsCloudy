@@ -25,8 +25,6 @@
     "ip-cidr": "^3.0.4",
     "lint-staged": "latest",
     "nyc": "latest",
-    "remark-cli": "latest",
-    "remark-preset-github": "latest",
     "xo": "latest"
   },
   "engines": {
@@ -46,11 +44,7 @@
     "url": "https://github.com/Friscas/iscloudy"
   },
   "scripts": {
-    "lint": "npm run lint:js && npm run lint:md",
-    "lint:js": "xo",
-    "lint:md": "remark . -qfo",
-    "pretest": "npm run lint",
-    "test": "ava",
+    "test": "xo",
     "fix": "xo --fix"
   },
   "xo": {
